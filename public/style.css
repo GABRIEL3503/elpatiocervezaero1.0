@@ -34,7 +34,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   display: flex;
   color: rgb(60 87 26);
-  font-size: 44px;
+  font-size: 47px;
   margin-bottom: 10px;
   justify-content: center;
 }
@@ -53,7 +53,7 @@ body {
 
 .item-description {
   font-family: 'Open Sans', sans-serif;
-  font-size: 25px;
+  font-size: 28px;
   margin: 5px 0;
 }
 
@@ -92,7 +92,7 @@ p {
 
 .item-title {
   margin: 6px;
-  font-size: 36px;
+  font-size: 39px;
 }
 
 .item-title::after {
@@ -112,7 +112,7 @@ p {
 
 .item-price {
   font-family: 'Open Sans', sans-serif;
-  font-size: 22px;
+  font-size: 25px;
   margin: 6px;
   font-weight: bold;
 }
@@ -154,7 +154,7 @@ p {
 }
 
 option {
-  font-size: 9px;
+  font-size: 11px;
 }
 
 #create-item-button {
