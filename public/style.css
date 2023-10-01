@@ -28,7 +28,7 @@ body {
 }
 
 .menu-section {
-  width: 90%;
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -44,7 +44,7 @@ body {
 
 .menu-item {
   border-radius: 9px;
-  background-color: white;
+  /* background-color: white; */
   display: flex;
   flex-direction: column;
   /* border: 1px solid #ccc; */
@@ -248,9 +248,12 @@ button{
 }
 
 .odd-item{
-background-color: #062513;
+  background: rgb(96, 123, 42);
+  background: linear-gradient(90deg, #062513 33%, #0f4726 77%)!important;
 }
-
 .odd-item h3 {
-  color: white;
+  color: white!important;
+}
+.odd-item .section-title{
+  color: #fff;
 }

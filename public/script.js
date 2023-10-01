@@ -51,12 +51,11 @@
 
 // }
 function loadMenuItems() {
-  fetch('https://elpatio.onrender.com/api/menu')
+  return fetch('https://elpatio.onrender.com/api/menu') // Asegúrate de que la URL sea la correcta
     .then(response => response.json())
     .then(data => {
       const container = document.querySelector('.container');
       let currentType = null;
-      let itemCount = 0; // Contador para los elementos dentro de una sección
 
       data.data.forEach(item => {
         let menuSection = document.querySelector(`.menu-section[data-type="${item.tipo}"]`);
@@ -72,28 +71,22 @@ function loadMenuItems() {
             sectionTitle.textContent = item.tipo.toUpperCase();
             menuSection.appendChild(sectionTitle);
             currentType = item.tipo;
-            itemCount = 0; // Reiniciar el contador para la nueva sección
           }
 
           container.appendChild(menuSection);
         }
 
-        const newItem = createMenuItem(item, itemCount);
+        const newItem = createMenuItem(item);
         menuSection.appendChild(newItem);
-        itemCount++; // Incrementar el contador
       });
+      applyOddItemClass();
     });
+   
 }
 
-function createMenuItem(item, index) {
+function createMenuItem(item) {
   const newItem = document.createElement('div');
   newItem.className = 'menu-item';
-
-  // Agregar una clase adicional si el índice es impar
-  if (index % 2 !== 0) {
-    newItem.classList.add('odd-item');
-  }
-
   newItem.innerHTML = `
     <div class="item-header">
       <h3 class="item-title">${item.nombre}</h3>
@@ -105,6 +98,20 @@ function createMenuItem(item, index) {
   newItem.dataset.id = item.id;
   return newItem;
 }
+function applyOddItemClass() {
+  // Obtener todas las secciones del menú
+  const menuSections = document.querySelectorAll('.menu-section');
+
+  // Iterar a través de cada sección y aplicar la clase 'odd-item' a las impares
+  menuSections.forEach((section, index) => {
+    if (index % 2 !== 0) {
+      section.classList.add('odd-item');
+    } else {
+      section.classList.remove('odd-item'); // Asegurarse de que las secciones pares no tengan la clase
+    }
+  });
+}
+
 
 document.body.addEventListener('click', function (event) {
   if (event.target.classList.contains('edit-button')) {
