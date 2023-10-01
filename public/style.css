@@ -246,3 +246,11 @@ button{
   font-size: 15px;
   padding: 12px;
 }
+
+.odd-item{
+background-color: #062513;
+}
+
+.odd-item h3 {
+  color: white;
+}

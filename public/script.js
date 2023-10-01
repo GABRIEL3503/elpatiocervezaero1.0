@@ -1,43 +1,99 @@
+// function loadMenuItems() {
+//   fetch('https://elpatio.onrender.com/api/menu')
+//     .then(response => response.json())
+//     .then(data => {
+//       const container = document.querySelector('.container'); // Obtener el contenedor
+//       let currentType = null; // Variable para llevar un registro del tipo actual
+
+//       data.data.forEach(item => {
+//         // Verificar si la sección del menú ya existe
+//         let menuSection = document.querySelector(`.menu-section[data-type="${item.tipo}"]`);
+
+//         // Si no existe, crearla
+//         if (!menuSection) {
+//           menuSection = document.createElement('div');
+//           menuSection.className = 'menu-section';
+//           menuSection.setAttribute('data-type', item.tipo);
+
+//           // Crear el título de la sección si es un nuevo tipo
+//           if (currentType !== item.tipo) {
+//             const sectionTitle = document.createElement('h2');
+//             sectionTitle.className = 'section-title';
+//             sectionTitle.textContent = item.tipo.toUpperCase();
+//             menuSection.appendChild(sectionTitle);
+//             currentType = item.tipo;
+//           }
+
+//           container.appendChild(menuSection);  // Añadir al contenedor en lugar del body
+//         }
+
+//         const newItem = createMenuItem(item);
+//         menuSection.appendChild(newItem);
+//       });
+//     });
+// }
+
+
+// function createMenuItem(item) {
+
+//   const newItem = document.createElement('div');
+//   newItem.className = 'menu-item';
+//   newItem.innerHTML = `
+//     <div class="item-header">
+//       <h3 class="item-title">${item.nombre}</h3>
+//       <span class="item-price">$${item.precio}</span>
+//     </div>
+//     <p class="item-description">${item.descripcion}</p>
+//     <button class="edit-button">Editar</button>
+//   `;
+//   newItem.dataset.id = item.id;
+//   return newItem;
+
+// }
 function loadMenuItems() {
   fetch('https://elpatio.onrender.com/api/menu')
     .then(response => response.json())
     .then(data => {
-      const container = document.querySelector('.container'); // Obtener el contenedor
-      let currentType = null; // Variable para llevar un registro del tipo actual
+      const container = document.querySelector('.container');
+      let currentType = null;
+      let itemCount = 0; // Contador para los elementos dentro de una sección
 
       data.data.forEach(item => {
-        // Verificar si la sección del menú ya existe
         let menuSection = document.querySelector(`.menu-section[data-type="${item.tipo}"]`);
 
-        // Si no existe, crearla
         if (!menuSection) {
           menuSection = document.createElement('div');
           menuSection.className = 'menu-section';
           menuSection.setAttribute('data-type', item.tipo);
 
-          // Crear el título de la sección si es un nuevo tipo
           if (currentType !== item.tipo) {
             const sectionTitle = document.createElement('h2');
             sectionTitle.className = 'section-title';
             sectionTitle.textContent = item.tipo.toUpperCase();
             menuSection.appendChild(sectionTitle);
             currentType = item.tipo;
+            itemCount = 0; // Reiniciar el contador para la nueva sección
           }
 
-          container.appendChild(menuSection);  // Añadir al contenedor en lugar del body
+          container.appendChild(menuSection);
         }
 
-        const newItem = createMenuItem(item);
+        const newItem = createMenuItem(item, itemCount);
         menuSection.appendChild(newItem);
+        itemCount++; // Incrementar el contador
       });
     });
 }
 
-
-function createMenuItem(item) {
-
+function createMenuItem(item, index) {
   const newItem = document.createElement('div');
   newItem.className = 'menu-item';
+
+  // Agregar una clase adicional si el índice es impar
+  if (index % 2 !== 0) {
+    newItem.classList.add('odd-item');
+  }
+
   newItem.innerHTML = `
     <div class="item-header">
       <h3 class="item-title">${item.nombre}</h3>
@@ -48,7 +104,6 @@ function createMenuItem(item) {
   `;
   newItem.dataset.id = item.id;
   return newItem;
-
 }
 
 document.body.addEventListener('click', function (event) {
