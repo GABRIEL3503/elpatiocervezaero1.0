@@ -10,6 +10,31 @@ app.use(express.json()); // Reemplaza a bodyParser.json()
 app.use(express.static('public')); 
 
 
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+
+// Hardcoded user for demonstration purposes
+const hardcodedUser = {
+  username: "admin",
+  password: bcrypt.hashSync("1234", 8)  // Hashed password
+};
+
+app.post('/api/auth/login', (req, res) => {
+  const { username, password } = req.body;
+
+  // In a real-world app, you'd fetch the user from the database
+  if (username === hardcodedUser.username && bcrypt.compareSync(password, hardcodedUser.password)) {
+    const token = jwt.sign({ id: hardcodedUser.username }, "your-secret-key", {
+   
+    });
+
+    res.status(200).send({ auth: true, token });
+  } else {
+    res.status(401).send({ auth: false, message: "Invalid credentials" });
+  }
+});
+
+
 
 
 // CRUD Endpoints

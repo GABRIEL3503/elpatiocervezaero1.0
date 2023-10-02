@@ -50,6 +50,65 @@
 //   return newItem;
 
 // }
+
+function checkAuthentication() {
+  const token = localStorage.getItem('jwt');
+  console.log("Token desde localStorage:", token);  // Depuración
+
+  if (token) {
+    console.log("Usuario autenticado. Mostrando botones...");  // Depuración
+
+    // El usuario está autenticado
+    document.querySelectorAll('.auth-required').forEach((elem) => {
+      elem.style.display = 'inline-block';
+    });
+  } else {
+    console.log("Usuario no autenticado. Ocultando botones...");  // Depuración
+  }
+}
+document.addEventListener("DOMContentLoaded", function () {
+  checkAuthentication();
+
+  // Añadir un evento click al botón "Iniciar Sesión"
+  document.getElementById('login-button').addEventListener('click', function () {
+    Swal.fire({
+      title: 'Iniciar Sesión',
+      html:
+        '<input id="swal-username" class="swal2-input" placeholder="Usuario">' +
+        '<input id="swal-password" type="password" class="swal2-input" placeholder="Contraseña">',
+      focusConfirm: false,
+      preConfirm: () => {
+        return {
+          username: document.getElementById('swal-username').value,
+          password: document.getElementById('swal-password').value
+        };
+      }
+    }).then((result) => {  // Asegúrate de que este bloque esté dentro de la llamada a Swal.fire
+      if (result.isConfirmed) {
+        // Enviar estas credenciales al servidor
+        fetch('/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(result.value)
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          if (data.auth) {
+            localStorage.setItem('jwt', data.token);  // 
+            console.log('Token almacenado:', localStorage.getItem('jwt'));  // Verificar si el token se almacenó
+            window.location.reload();  // Recargar la página
+
+          } else {
+            console.log('Credenciales inválidas');
+          }
+        });
+      }
+    });
+  });
+  
 function loadMenuItems() {
   return fetch('https://elpatio.onrender.com/api/menu') // Asegúrate de que la URL sea la correcta
     .then(response => response.json())
@@ -80,9 +139,13 @@ function loadMenuItems() {
         menuSection.appendChild(newItem);
       });
       applyOddItemClass();
+      checkAuthentication();
+
     });
+    
    
 }
+
 
 function createMenuItem(item) {
   const newItem = document.createElement('div');
@@ -93,7 +156,7 @@ function createMenuItem(item) {
       <span class="item-price">$${item.precio}</span>
     </div>
     <p class="item-description">${item.descripcion}</p>
-    <button class="edit-button">Editar</button>
+    <button class="edit-button auth-required">Editar</button>
   `;
   newItem.dataset.id = item.id;
   return newItem;
@@ -192,7 +255,7 @@ document.body.addEventListener('click', function (event) {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+  
   // Cargar los elementos del menú
   loadMenuItems();
 
@@ -265,4 +328,17 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+});
+// Función para cerrar la sesión
+function simpleLogout() {
+  localStorage.removeItem('jwt');  // Elimina el token JWT del almacenamiento local
+  window.location.reload();  // Recarga la página
+}
+
+// Vincula la función al evento click del botón "Cerrar Sesión"
+document.addEventListener("DOMContentLoaded", function () {
+  const logoutButton = document.getElementById('logout-button');
+  if (logoutButton) {  // Comprueba si el botón existe en la página
+    logoutButton.addEventListener('click', simpleLogout);
+  }
 });

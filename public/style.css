@@ -184,6 +184,8 @@ option {
 
 
 .footer {
+  margin-top: 33px;
+  padding: 22px 0px;
   background: rgb(96, 123, 42);
   background: linear-gradient(90deg, #062513 33%, #0f4726 77%);
   width:100%;
@@ -251,13 +253,12 @@ button{
 
 .odd-item{
   background: rgb(96, 123, 42);
-  background: linear-gradient(90deg, #062513 33%, #0f4726 77%)!important;
-}
-.odd-item h3 {
+  background: linear-gradient(90deg, #005523 33%, #005523 77%)!important;
+}.odd-item h3 {
   color: white!important;
 }
 .odd-item .section-title{
-  color: #fff;
+  color: #fff!important;
 }
 
 .odd-item .item-price{
@@ -270,4 +271,9 @@ color: white;
 
 .odd-item .item-title::after{
   color: #ecffd4;
+}
+
+
+.auth-required{
+  display:none
 }
