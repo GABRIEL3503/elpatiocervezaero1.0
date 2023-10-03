@@ -277,3 +277,19 @@ color: white;
 .auth-required{
   display:none
 }
+.swal2-popup{
+  width: 37vh!important;
+  height: 30vh!important;
+}
+
+.swal2-title{
+  font-size: 54px!important;
+}.swal2-input{
+  width: 600px!important;
+    height: 90px!important;
+    padding: 0 0.75em!important;
+    font-size: 29px!important;
+}
+swal2-confirm{
+  font-size: 30px!important;
+}
