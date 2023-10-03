@@ -127,8 +127,6 @@ function loadMenuItems() {
           if (currentType !== item.tipo) {
             const sectionTitle = document.createElement('h2');
             sectionTitle.className = 'section-title';
-            sectionTitle.classList.add(item.tipo.toLowerCase()); // añadir la clase correspondiente
-
             sectionTitle.textContent = item.tipo.toUpperCase();
             menuSection.appendChild(sectionTitle);
             currentType = item.tipo;
