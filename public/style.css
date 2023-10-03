@@ -270,7 +270,7 @@ color: white;
 }
 
 .odd-item .item-title::after{
-  color: #ecffd4;
+  background-color: #ecffd4!important;
 }
 
 
