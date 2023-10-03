@@ -134,7 +134,7 @@ p {
 .edit-button {
   margin-top: 12px;
   border-radius: 3px;
-  max-width: 130px;
+  max-width: 202px;
   background-color: transparent;
   border: 1px solid #000;
   padding: 9px 10px;
@@ -247,7 +247,8 @@ option {
 }
 
 button{
-  font-size: 15px;
+  margin: 12px;
+  font-size: 25px;
   padding: 12px;
 }
 
