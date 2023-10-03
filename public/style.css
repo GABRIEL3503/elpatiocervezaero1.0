@@ -296,3 +296,20 @@ color: white;
 swal2-confirm{
   font-size: 30px!important;
 }
+.section-title.pizzas::before {
+  content: url('img/para_compartir.png');
+  /* demás estilos para el icono */
+}
+
+.section-title.bebidas::before {
+  content: url('img/para_compartir.png');
+  /* demás estilos para el icono */
+}
+
+/* y así sucesivamente para cada tipo de sección */
+.section-title::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;  /* Espacio entre el icono y el texto */
+}
