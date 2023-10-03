@@ -9,6 +9,7 @@ body {
 
 
 .container {
+  position: relative;
   padding-bottom: 228px;
   display: flex;
   flex-direction: column;
