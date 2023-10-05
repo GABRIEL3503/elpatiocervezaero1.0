@@ -186,6 +186,7 @@ option {
 
 
 .footer {
+  
   margin-top: 33px;
   padding: 22px 0px;
   background: rgb(96, 123, 42);
@@ -197,6 +198,7 @@ option {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
   /* background: rgb(96, 123, 42);
   background: linear-gradient(90deg, #062513 33%, #0f4726 77%); */
 }
@@ -256,7 +258,9 @@ button{
 
 .odd-item{
   background: rgb(96, 123, 42);
-  background: linear-gradient(90deg, #005523 33%, #005523 77%)!important;
+  background: linear-gradient(90deg, #018f3c 33%, #005523)!important;
+  ;
+  ;
 }.odd-item h3 {
   color: white!important;
 }
@@ -312,4 +316,12 @@ swal2-confirm{
   display: inline-block;
   vertical-align: middle;
   margin-right: 10px;  /* Espacio entre el icono y el texto */
+}
+
+
+.botones-fot{
+display: flex;}
+.span-footer{
+  display: flex;
+    justify-content: space-between;
 }
