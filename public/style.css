@@ -76,8 +76,7 @@ p {
 .image-container {
   width: 100%;
   display: flex;
-  background: rgb(96, 123, 42);
-  background: linear-gradient(90deg, #062513 33%, #0f4726 77%);
+  background: linear-gradient(90deg, #062513 33%, #095729 77%);
   justify-content: center;
 }
 
@@ -257,8 +256,9 @@ button{
 }
 
 .odd-item{
-  background: rgb(96, 123, 42);
-  background: linear-gradient(90deg, #018f3c 33%, #005523)!important;
+  background: #006d2d;
+
+  /* background: linear-gradient(90deg, #018f3c 33%, #005523)!important; */
   ;
   ;
 }.odd-item h3 {
@@ -324,4 +324,10 @@ display: flex;}
 .span-footer{
   display: flex;
     justify-content: space-between;
+}
+
+#login-button, #logout-button{
+  border: none;
+  color: white;
+  background-color: transparent;
 }
