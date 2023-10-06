@@ -35,11 +35,12 @@ body {
 }
 
 .section-title {
-  font-family: 'Raleway', sans-serif;
+  letter-spacing: 3px;
+  font-family: 'Nunito Sans', sans-serif;
   /* font-family: 'Open Sans', sans-serif; */
   display: flex;
   color: rgb(60 87 26)!important;
-  font-size: 50px;
+  font-size: 53px;
   margin-bottom: 10px;
   justify-content: center;
 }
