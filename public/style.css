@@ -83,6 +83,7 @@ p {
 /* ... Otros estilos ... */
 
 .menu-item {
+  margin-bottom: 38px;
   /* border: 1px solid #ccc; */
   padding: 10px;
   margin-top: 32px;
