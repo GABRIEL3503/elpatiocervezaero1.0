@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Añadir un evento click al botón "Iniciar Sesión"
   document.getElementById('login-button').addEventListener('click', function () {
     Swal.fire({
-      title: 'Iniciar Sesión',
+      title: 'Sesión',
       html:
         '<input id="swal-username" class="swal2-input" placeholder="Usuario">' +
         '<input id="swal-password" type="password" class="swal2-input" placeholder="Contraseña">',

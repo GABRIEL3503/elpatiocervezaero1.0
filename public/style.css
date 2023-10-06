@@ -193,7 +193,7 @@ option {
   background: linear-gradient(90deg, #062513 33%, #0f4726 77%);
   width:100%;
   margin: 0;
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   display: flex;
   justify-content: space-evenly;
