@@ -23,10 +23,11 @@ body {
 }
 
 .image-container img {
-  margin: 40px;
-  max-width: 60%;
-  max-height: 300px;
-  object-fit: cover;
+  padding: 28px;
+    margin: 40px;
+    max-width: 60%;
+    max-height: 287px;
+    object-fit: cover;
 }
 
 .menu-section {
