@@ -38,7 +38,7 @@ body {
   font-family: 'Raleway', sans-serif;
   /* font-family: 'Open Sans', sans-serif; */
   display: flex;
-  color: rgb(60 87 26);
+  color: rgb(60 87 26)!important;
   font-size: 50px;
   margin-bottom: 10px;
   justify-content: center;
@@ -98,7 +98,7 @@ p {
 }
 
 .item-title {
-  color: #2f2f2f;
+  color: #2f2f2f!important;
   margin: 6px;
   font-size: 42px;
 }
@@ -110,7 +110,7 @@ p {
   left: 0;
   right: 0;
   height: 1px;
-  background-color: #3c571a;
+  background-color: #3c571a!important;
   /* Color del subrayado */
 }
 
@@ -145,8 +145,8 @@ p {
 }
 
 .edit-button:hover {
-  background-color: #000;
-  color: #fff;
+  background-color: #000!important;
+  color: #fff!important;
 }
 
 /* .swal2-container{
@@ -232,7 +232,7 @@ option {
   width: 100px;
 }
 .footer-right h2 {
-  color: #fff;
+  color: #fff!important;
 }
 
 .google-map {
@@ -269,11 +269,11 @@ button{
 }
 
 .odd-item .item-price{
-color: white;
+color: white!important;
 }
 
 .odd-item  .item-description{
-  color: white;
+  color: white!important;
 }
 
 .odd-item .item-title::after{
@@ -328,8 +328,8 @@ display: flex;}
 
 #login-button, #logout-button{
   border: none;
-  color: white;
-  background-color: transparent;
+  color: white!important;
+  background-color: transparent!important;
 }
 
 
