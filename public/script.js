@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   
 function loadMenuItems() {
-  return fetch('https://elpatio.onrender.com/api/menu') // Asegúrate de que la URL sea la correcta
+  return fetch('https://tu-aplicacion-octopus.com.ar/api/menu') // Asegúrate de que la URL sea la correcta
     .then(response => response.json())
     .then(data => {
       const container = document.querySelector('.container');
@@ -138,7 +138,7 @@ function loadMenuItems() {
         const newItem = createMenuItem(item);
         menuSection.appendChild(newItem);
       });
-      applyOddItemClass();
+      
       checkAuthentication();
 
     });
@@ -161,19 +161,7 @@ function createMenuItem(item) {
   newItem.dataset.id = item.id;
   return newItem;
 }
-function applyOddItemClass() {
-  // Obtener todas las secciones del menú
-  const menuSections = document.querySelectorAll('.menu-section');
 
-  // Iterar a través de cada sección y aplicar la clase 'odd-item' a las impares
-  menuSections.forEach((section, index) => {
-    if (index % 2 !== 0) {
-      section.classList.add('odd-item');
-    } else {
-      section.classList.remove('odd-item'); // Asegurarse de que las secciones pares no tengan la clase
-    }
-  });
-}
 
 
 document.body.addEventListener('click', function (event) {
@@ -194,6 +182,7 @@ document.body.addEventListener('click', function (event) {
         '<option value="ENTRADAS" ' + (itemType === 'ENTRADAS' ? 'selected' : '') + '>ENTRADAS</option>' +
         '<option value="PARA COMPARTIR" ' + (itemType === 'PARA COMPARTIR' ? 'selected' : '') + '>PARA COMPARTIR</option>' +
         '<option value="SANDWICHES" ' + (itemType === 'SANDWICHES' ? 'selected' : '') + '>SANDWICHES</option>' +
+        '<option value="PIZZETAS" ' + (itemType === 'PIZZETAS' ? 'selected' : '') + '>PIZZETAS</option>' +
         '<option value="BEBIDAS" ' + (itemType === 'BEBIDAS' ? 'selected' : '') + '>BEBIDAS</option>' +
         '<option value="CERVEZAS" ' + (itemType === 'CERVEZAS' ? 'selected' : '') + '>CERVEZAS</option>' +
         '<option value="GIN" ' + (itemType === 'GIN' ? 'selected' : '') + '>GIN</option>' +
@@ -269,6 +258,7 @@ document.body.addEventListener('click', function (event) {
         '<input id="swal-input4" class="swal2-input" placeholder="Descripción">' +
         '<select id="swal-input3" class="swal2-input">' +
         '<option value="ENTRADAS">ENTRADAS</option>' +
+        '<option value="PIZZETAS">PIZZETAS</option>' +
         '<option value="PARA COMPARTIR">PARA COMPARTIR</option>' +
         '<option value="SANDWICHES">SANDWICHES</option>' +
         '<option value="BEBIDAS">BEBIDAS</option>' +
@@ -295,7 +285,7 @@ document.body.addEventListener('click', function (event) {
         };
 
         // Crear el nuevo elemento en el servidor
-        fetch('https://elpatio.onrender.com/api/menu', {
+        fetch('https://tu-aplicacion-octopus.com.ar/api/menu', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
