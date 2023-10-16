@@ -2,7 +2,7 @@
 
 function checkAuthentication() {
   const token = localStorage.getItem('jwt');
-  console.log("Token desde localStorage:", token);  // Depuración
+  console.log("Token desde localStorage:", token);  
 
   if (token) {
     console.log("Usuario autenticado. Mostrando botones...");  // Depuración
