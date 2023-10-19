@@ -332,3 +332,12 @@ p{
   font-family: 'Montserrat', sans-serif;
   color: var(--white-color)!important;
 }
+
+#sandwiches-subtitle{
+  margin-top: 2px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 29px;
+  color: var(--white-color);
+  font-family: 'Montserrat', sans-serif;;
+}

@@ -67,20 +67,29 @@ function loadMenuItems() {
 
       data.data.forEach(item => {
         let menuSection = document.querySelector(`.menu-section[data-type="${item.tipo}"]`);
-
+      
         if (!menuSection) {
           menuSection = document.createElement('div');
           menuSection.className = 'menu-section';
           menuSection.setAttribute('data-type', item.tipo);
-
+      
           if (currentType !== item.tipo) {
             const sectionTitle = document.createElement('h2');
             sectionTitle.className = 'section-title';
             sectionTitle.textContent = item.tipo.toUpperCase();
             menuSection.appendChild(sectionTitle);
+      
+            // Si el tipo de ítem es "Sandwiches", añadir un subtítulo adicional
+            if (item.tipo.toLowerCase() === 'sandwiches') {
+              const subtitle = document.createElement('h3');
+              subtitle.textContent = 'TODOS ACOMPAÑADOS CON PAPAS';
+              subtitle.id = 'sandwiches-subtitle';  // O puedes usar className en lugar de id si prefieres
+              menuSection.appendChild(subtitle);
+            }
+      
             currentType = item.tipo;
           }
-
+      
           container.appendChild(menuSection);
         }
 
