@@ -17,7 +17,7 @@ body {
 
 
 .container {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color)!important;
   position: relative;
   padding-bottom: 228px;
   display: flex;
@@ -48,7 +48,7 @@ body {
   letter-spacing: 3px;
   font-family: 'Montserrat', sans-serif;
   display: flex;
-  color: var(--white-color);
+  color: var(--white-color)!important;
   font-size: 53px;
   margin-bottom: 10px;
   justify-content: center;
@@ -85,7 +85,7 @@ p {
 .image-container {
   width: 100%;
   display: flex;
-background-color: var(--primary-color);
+background-color: var(--primary-color)!important;
   justify-content: center;
 }
 
@@ -121,7 +121,7 @@ background-color: var(--primary-color);
   left: 0;
   right: 0;
   height: 2px;
-  background-color: var(--secundary-color)!important;
+  /* background-color: var(--secundary-color)!important; */
   /* Color del subrayado */
 }
 
@@ -130,7 +130,7 @@ background-color: var(--primary-color);
 }
 
 .item-price {
-  color: var(--white-color);
+  color: var(--white-color)!important;
   font-family: 'Montserrat', sans-serif;
   font-size: 34px;
   margin: 6px;
@@ -148,8 +148,8 @@ background-color: var(--primary-color);
   margin-top: 12px;
   border-radius: 6px;
   max-width: 202px;
-  background-color: rgb(250, 250, 250);
-  border: 1px solid #000;
+  background-color: rgb(250, 250, 250)!important;
+  border: 1px solid #000!important;
   padding: 9px 10px;
   margin-left: 10px;
   cursor: pointer;
@@ -200,7 +200,7 @@ option {
   
   margin-top: 33px;
   padding: 22px 0px;
-background-color: var(--oscuro-color);
+background-color: var(--oscuro-color)!important;
   width:100%;
   margin: 0;
   /* position: fixed; */
@@ -338,6 +338,6 @@ p{
   font-weight: 600;
   text-align: center;
   font-size: 29px;
-  color: var(--white-color);
+  color: var(--white-color)!important;
   font-family: 'Montserrat', sans-serif;;
 }
